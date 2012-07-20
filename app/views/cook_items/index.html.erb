@@ -1,0 +1,29 @@
+<h1>Listing cook_items</h1>
+
+<table>
+  <tr>
+    <th>Recipe</th>
+    <th>Ingredient</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cook_items.each do |cook_item| %>
+  <tr>
+    <td><%= cook_item.recipe_id %></td>
+    <td><%= cook_item.ingredient_id %></td>
+    <td><%= cook_item.quantity %></td>
+    <td><%= cook_item.unit %></td>
+    <td><%= link_to 'Show', cook_item %></td>
+    <td><%= link_to 'Edit', edit_cook_item_path(cook_item) %></td>
+    <td><%= link_to 'Destroy', cook_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cook item', new_cook_item_path %>
