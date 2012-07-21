@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.search(params[:search_re])
 
     respond_to do |format|
       format.html # index.html.erb
