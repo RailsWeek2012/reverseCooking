@@ -12,14 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :Recipe %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :formula %><br />
+
+    <div class="field">
+    <%= f.label :Cooking %><br />
     <%= f.text_area :formula %>
   </div>
-  <div class="actions">
+
+
+  <%= f.label :Ingredients %><br />
+      <% Ingredient.all.each do |ingredient| %>
+      <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
+      <%= label_tag ingredient.name %>
+      <% end %>
+
+
+   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

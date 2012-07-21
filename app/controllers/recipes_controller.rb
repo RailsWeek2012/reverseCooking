@@ -41,6 +41,9 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(params[:recipe])
+    ingredients = params[:ingredients]
+
+    @recipe.ingredient_ids = ingredients.collect {|key, value| key}
 
     respond_to do |format|
       if @recipe.save
@@ -57,6 +60,9 @@ class RecipesController < ApplicationController
   # PUT /recipes/1.json
   def update
     @recipe = Recipe.find(params[:id])
+    ingredients = params[:ingredients]
+
+    @recipe.ingredient_ids = ingredients.collect {|key, value| key}
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])

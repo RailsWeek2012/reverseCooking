@@ -2,8 +2,7 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Formula</th>
+    <th>Recipes</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +11,6 @@
 <% @recipes.each do |recipe| %>
   <tr>
     <td><%= recipe.name %></td>
-    <td><%= recipe.formula %></td>
     <td><%= link_to 'Show', recipe %></td>
     <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
     <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,3 +21,4 @@
 <br />
 
 <%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to 'Add new Ingredients', ingredients_path %>

@@ -4,4 +4,7 @@ class Recipe < ActiveRecord::Base
 
 
   attr_accessible :formula, :name
+  validates :formula, :name, presence: true
+  accepts_nested_attributes_for   :ingredients,  :cook_items
+
 end
