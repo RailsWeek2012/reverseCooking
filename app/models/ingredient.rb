@@ -4,8 +4,13 @@ class Ingredient < ActiveRecord::Base
 
   def self.search(search)
     if search
+      @recipes = Array(nil)
      all(:conditions => ['name LIKE ?', "%#{search}%"]).each do |ingredient|
-       @recipes = Ingredient.recipe
+
+       ingredient.cook_items.each do |item|
+         @recipes.append Recipe.find(item.recipe_id)
+       end
+
        return @recipes
      end
 

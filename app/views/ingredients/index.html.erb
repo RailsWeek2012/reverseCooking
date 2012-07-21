@@ -1,4 +1,12 @@
-<h2>Listing ingredients</h2>
+
+<% if true %>
+  <% @title = "Rezepte die #{params[:search]} enthalten" %>
+      <% new = false %>
+    <% else %>
+      <% @title = "Ingredients" %>
+<% end %>
+
+<h2><%= @title  %></h2>
 
 <table>
   <tr>
@@ -7,17 +15,24 @@
     <th></th>
     <th></th>
   </tr>
-
+<% if @ingredients.count == 0 %>
+     no entries were found
+<% else %>
 <% @ingredients.each do |ingredient| %>
   <tr>
     <td><%= ingredient.name %></td>
-    <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+    <td><%= link_to 'Edit', edit_recipe_path(ingredient) %></td>
     <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-<% end %>
+  <% end %>
+  <% end %>
+
+
 </table>
 
 <br />
-
+<% if new %>
 <%= link_to 'New Ingredient', new_ingredient_path %>
+<% end %>
+
 <%= link_to 'Back to Recipes', recipes_path %>
