@@ -9,6 +9,7 @@
     </tr>
   </thead>
   <tbody>
+
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= link_to recipe.name, recipe_path(recipe) %></td>
