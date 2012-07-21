@@ -1,40 +1,32 @@
-<h1>Listing recipes</h1>
+<%- model_class = Recipe -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.name, recipe_path(recipe) %></td>
 
-<%= form_tag recipes_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search_re, params[:search_re] %>
-      <%= submit_tag "Search by recipe title", :name => nil %>
-    </p>
-<% end %>
-
-
-<%= form_tag ingredients_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search_in, params[:search_in] %>
-      <%= submit_tag "Search by ingredients", :name => nil %>
-    </p>
-<% end %>
-
-
-<table>
-  <tr>
-    <th>Recipes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.name %></td>
-    <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_recipe_path(recipe), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      recipe_path(recipe),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Recipe', new_recipe_path %>
-<%= link_to 'Add new Ingredients', ingredients_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_recipe_path,
+            :class => 'btn btn-primary' %>

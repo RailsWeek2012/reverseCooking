@@ -1,7 +1,6 @@
-<% @title = "edit" %>
-<h1>Editing recipe</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+<%- model_class = Recipe -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+</div>
+<%= render :partial => 'form' %>
