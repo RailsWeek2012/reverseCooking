@@ -15,7 +15,15 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
+
+    <%= f.label :Ingredients %><br />
+    <% Ingredient.all.each do |ingredient| %>
+        <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
+        <%= label_tag ingredient.name %>
+    <% end %>
+
+
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

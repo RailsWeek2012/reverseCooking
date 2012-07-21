@@ -10,6 +10,8 @@
   <dd><%= @recipe.formula %></dd>
 </dl>
 
+<%= @recipe.ingredients.all.collect(&:name) %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               recipes_path, :class => 'btn'  %>
