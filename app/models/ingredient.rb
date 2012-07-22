@@ -5,15 +5,20 @@ class Ingredient < ActiveRecord::Base
   def self.search(search)
     if search
       @recipes = Array(nil)
-     all(:conditions => ['name LIKE ?', "%#{search}%"]).each do |ingredient|
+      if search.blank?
+         return @recipes
 
-       ingredient.cook_items.each do |item|
-         @recipes.append Recipe.find(item.recipe_id)
-       end
+    else
+      all(:conditions => ['name LIKE ?', "%#{search}%"]).each do |ingredient|
 
-       return @recipes
-     end
+        ingredient.cook_items.each do |item|
+          @recipes.append Recipe.find(item.recipe_id)
+        end
 
+        return @recipes
+
+      end
+      end
     else
       return all
     end

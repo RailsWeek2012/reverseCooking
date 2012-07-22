@@ -43,7 +43,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
     ingredients = params[:ingredients]
 
-    @recipe.ingredient_ids = ingredients.collect {|key, value| key}
+    unless ingredients.blank?
+      @recipe.ingredient_ids = ingredients.collect {|key, value| key}
+      #Todo: catch possible error when no ingredients are given
+    end
 
     respond_to do |format|
       if @recipe.save
@@ -61,8 +64,9 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     ingredients = params[:ingredients]
-
-    @recipe.ingredient_ids = ingredients.collect {|key, value| key}
+    unless ingredients.blank?
+      @recipe.ingredient_ids = ingredients.collect {|key, value| key}
+    end
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
