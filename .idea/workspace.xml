@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/recipes/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="0.2112676">
+            <state line="8" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="-5.0">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="23" selection-start="1099" selection-end="1099" vertical-scroll-proportion="-14.375">
+            <state line="35" column="23" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.6216216">
               <folding />
             </state>
           </provider>
@@ -857,16 +857,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/recipes/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="23" selection-start="1099" selection-end="1099" vertical-scroll-proportion="-14.375">
+        <state line="8" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/recipes/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="107" selection-end="107" vertical-scroll-proportion="0.2112676">
+        <state line="35" column="23" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.6216216">
           <folding />
         </state>
       </provider>
