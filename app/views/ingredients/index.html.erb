@@ -1,6 +1,6 @@
-
-<% if true %>
-  <% @title = "Rezepte die #{params[:search]} enthalten" %>
+<% new = true %>
+<% unless params[:search_in].blank? %>
+  <% @title = "Rezepte die #{params[:search_in]} enthalten:" %>
       <% new = false %>
     <% else %>
       <% @title = "Ingredients" %>
