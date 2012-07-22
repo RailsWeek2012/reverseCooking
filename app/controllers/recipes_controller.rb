@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
 
     unless ingredients.blank?
       @recipe.ingredient_ids = ingredients.collect {|key, value| key}
-      #Todo: catch possible error when no ingredients are given
+      #Todo: throw error when no ingredients are given
     end
 
     respond_to do |format|

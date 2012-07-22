@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Dish:</b>
-  <%= @recipe.name %>
-</p>
+  <h3>Dish:
+ <%= @recipe.name %>
+      </h3>
 
-<p>
-  <b>Recipe:</b>
+<br><br>
+
+  <h2>Recipe:</h2>
   <%= @recipe.formula %>
-</p>
 
 <p>
-  <b>Ingredients:</b>
-  <%= @recipe.ingredients.all.collect(&:name) %>
-</p>
+  <h2>Ingredients:</h2>
+  <% @recipe.ingredients.each do |this_ingredient| %>
+    <%= this_ingredient.name %><br>
+  <% end %>
 
-
+<br><br>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Ok', recipes_path %>
