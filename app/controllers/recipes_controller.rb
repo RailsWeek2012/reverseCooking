@@ -43,9 +43,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
     ingredients = params[:ingredients]
 
-    unless ingredients.blank?
+    if ingredients.blank?
+      #Todo: throw error: no ingredients are given
+    else
       @recipe.ingredient_ids = ingredients.collect {|key, value| key}
-      #Todo: throw error when no ingredients are given
     end
 
     respond_to do |format|

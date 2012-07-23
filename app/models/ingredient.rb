@@ -4,31 +4,30 @@ class Ingredient < ActiveRecord::Base
 
   def self.search(search)
     if search
-      @recipes = Array(nil)
+
+      @recipes = Array nil
+      @search_values = Array nil
+
       if search.blank?
-         return @recipes
+        return @recipes
 
       else
+
         search.split(' ').each do |aParam|
-          all(:conditions => ['name LIKE ?', "%#{aParam}%"]).each do |result|
+          ingredients = all(:conditions => ['name LIKE ?', "%#{aParam}%"])
 
-           result.cook_items.each do |item|
-             @recipes.append Recipe.find(item.recipe_id)
-           end
-
-
-          @recipes.each do |recipe|
-            search.split(' ').each do |ingredient_search|
-             @recipes.delete recipe unless recipe.ingredients.include? ingredient_search
-            end
+          ingredients.each do |i|
+            @search_values.append i
+            @recipes += i.recipes
           end
-
-
-             return @recipes
-
-          end
-         end
         end
+
+        @foo = @recipes.select do |recipe|
+          (recipe.ingredients - @search_values).empty?
+        end
+
+        return @foo.uniq
+      end
     else
       return all
     end
