@@ -10,7 +10,7 @@
 
 <% if @ingredients.count == 0 %>
         no entries were found<br><br><br>
-    <%= link_to '--> Pizza bestellen', "http://pizza.de" %>
+    <%= link_to '--> order Pizza ', "http://pizza.de" %>
     <br>
 <% else %>
 <table>
@@ -25,12 +25,12 @@
 
 <% @ingredients.each do |ingredient| %>
     <td><%= ingredient.name %></td>
-    <td><%= link_to 'Show', ingredient %></td>
+    <td><%= link_to (t :show), ingredient %></td>
     <% if rec %>
-      <td><%= link_to 'Edit', edit_recipe_path(ingredient) %></td>
+      <td><%= link_to (t :edit), edit_recipe_path(ingredient) %></td>
     <% else %>
-      <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-     <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to (t :edit), edit_ingredient_path(ingredient) %></td>
+     <td><%= link_to "#{t :destroy}", ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
   <% end %>
@@ -44,4 +44,4 @@
 <%= link_to 'New Ingredient', new_ingredient_path %>
 <% end %>
 
-<%= link_to 'Back to Recipes', recipes_path %>
+<%= link_to (t :back_to_rec), recipes_path %>
