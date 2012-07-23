@@ -8,17 +8,27 @@ class Ingredient < ActiveRecord::Base
       if search.blank?
          return @recipes
 
-    else
-      all(:conditions => ['name LIKE ?', "%#{search}%"]).each do |ingredient|
+      else
+        search.split(' ').each do |aParam|
+          all(:conditions => ['name LIKE ?', "%#{aParam}%"]).each do |result|
 
-        ingredient.cook_items.each do |item|
-          @recipes.append Recipe.find(item.recipe_id)
+           result.cook_items.each do |item|
+             @recipes.append Recipe.find(item.recipe_id)
+           end
+
+
+          @recipes.each do |recipe|
+            search.split(' ').each do |ingredient_search|
+             @recipes.delete recipe unless recipe.ingredients.include? ingredient_search
+            end
+          end
+
+
+             return @recipes
+
+          end
+         end
         end
-
-        return @recipes
-
-      end
-      end
     else
       return all
     end
@@ -26,4 +36,5 @@ class Ingredient < ActiveRecord::Base
 
   attr_accessible :name
   validates :name, presence: true
+
 end

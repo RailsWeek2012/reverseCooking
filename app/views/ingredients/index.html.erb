@@ -2,7 +2,7 @@
       <% @title = "Ingredients" %>
       <% rec = false %>
     <% else %>
-      <% @title = "Rezepte die #{params[:search_in]} enthalten:" %>
+      <% @title = "Rezepte die #{params[:search_in].split(' ').join(", ")} enthalten:" %>
       <% rec = true %>
 <% end %>
 
@@ -21,12 +21,13 @@
 <% @ingredients.each do |ingredient| %>
   <tr>
     <td><%= ingredient.name %></td>
+    <td><%= link_to 'Show', ingredient %></td>
     <% if rec %>
-    <td><%= link_to 'Edit', edit_recipe_path(ingredient) %></td>
-        <% else %>
-        <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-        <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+      <td><%= link_to 'Edit', edit_recipe_path(ingredient) %></td>
+    <% else %>
+      <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+     <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
   <% end %>
   <% end %>

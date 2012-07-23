@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :Recipe %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :value => 'Name' %>
   </div>
 
     <div class="field">
     <%= f.label :Cooking %><br />
-    <%= f.text_area :formula %>
+    <%= f.text_area :formula, :value => 'Formula' %>
   </div>
 
 
@@ -27,7 +27,6 @@
       <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
       <%= label_tag ingredient.name %>
       <% end %>
-
 
    <div class="actions">
     <%= f.submit %>
