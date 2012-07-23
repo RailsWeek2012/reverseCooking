@@ -2,7 +2,7 @@
       <% @title = "Ingredients" %>
       <% rec = false %>
     <% else %>
-      <% @title = "Recipes which contain #{params[:search_in].split(' ').join(", ")}:" %>
+      <% @title = "Recipes you can still cook with: #{params[:search_in].split(' ').join(", ")}:" %>
       <% rec = true %>
 <% end %>
 
@@ -10,7 +10,7 @@
 
 <% if @ingredients.count == 0 %>
         no entries were found<br><br><br>
-    <%= link_to '--> order Pizza ', "http://pizza.de" %>
+    <%= link_to '--> maybe order a Pizza ', "http://pizza.de" %>
     <br>
 <% else %>
 <table>

@@ -1,9 +1,11 @@
 ReverseCooking::Application.routes.draw do
 
+
   scope "/:locale" do
     resources :cook_items
     resources :ingredients
     resources :recipes
+    resources :comments
 
   end
   # The priority is based upon order of creation:

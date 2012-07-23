@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :cook_items
+  has_many :comments
   has_many :ingredients, :through => :cook_items
 
   def self.search(search)

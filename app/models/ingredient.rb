@@ -25,6 +25,7 @@ class Ingredient < ActiveRecord::Base
         @foo = @recipes.select do |recipe|
           (recipe.ingredients - @search_values).empty?
         end
+        #TODO: Append recipes with one or two ingredients missing
 
         return @foo.uniq
       end
