@@ -27,9 +27,16 @@
 <% @recipes.each do |recipe| %>
   <tr>
     <td><%= recipe.name %></td>
-    <td><%= link_to (t :show), recipe %></td>
-    <td><%= link_to (t :edit), edit_recipe_path(recipe) %></td>
+   <!-- <td><button class="btn-primary" onclick="location.href='<%= recipe %>'" ><%= link_to (t :show)%></button></td>
+    <td><button class="btn-info"><%= link_to (t :edit), edit_recipe_path(recipe) %></button></td>
+    <td><button class="btn-danger"><%= link_to (t :destroy), recipe, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+    !-->
+
+    <td><%= link_to (t :show), recipe%></td>
+    <td><%= link_to (t :edit), edit_recipe_path(recipe) %><td>
     <td><%= link_to (t :destroy), recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
   </tr>
 <% end %>
 </table>
