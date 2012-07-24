@@ -25,6 +25,9 @@
 
 
     <%= f.label :Ingredients %><br />
+    <%# TODO: sort ingredients by type %>
+
+
     <% Ingredient.all.each do |ingredient| %>
         <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
         <%= label_tag ingredient.name %>

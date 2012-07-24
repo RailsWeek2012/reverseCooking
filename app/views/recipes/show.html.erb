@@ -18,16 +18,27 @@
 <h2>voting:</h2>
 <p>
 
-  <%= @recipe.name %> scores ... out of 10 possible
-  points. <%= link_to "vote here", '#', :class => "btn-small btn-info" %>
+  <%= @recipe.name %> scores ... out of 10 possible points.
+   <br>
 </p>
+
+<%# TODO: implement voting window %>
+<%# TODO: get real scores, init vote button %>
+
+<% unless @message_rendered %>
+    <% if flash[:vote] %>
+        <p class='notice'> <%= h flash[:notice] %></p>
+
+    <% end %>
+    <% @message_rendered = true %>
+<% end %>
 
 <div class="progress progress-striped">
   <div class="bar"
        style="width: 20%;"></div>
 </div>
+<%= link_to "vote here", (h flash[:vote]), :class => "btn-small btn-info" %>
 
-<% #TODO: get real scores, init vote button     %>
 
 
 <br>

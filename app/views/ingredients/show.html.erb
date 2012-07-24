@@ -5,6 +5,11 @@
   <%= @ingredient.name %>
 </p>
 
+<p>
+  <b>Typ:</b>
+  <%= @ingredient.type %>
+</p>
+
 
 <%= link_to 'Edit', edit_ingredient_path(@ingredient), :class => "btn-small btn-warning"  %>
 <%= link_to 'Back', ingredients_path, :class => "btn-small btn-inverse"  %>
