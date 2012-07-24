@@ -1,34 +1,36 @@
 <%= form_for(@recipe) do |f| %>
-  <% if @recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+    <% if @recipe.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-      <% @recipe.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :Recipe %><br />
-    <%= f.text_field :name, :value => 'Name' %>
-  </div>
+          <ul>
+            <% @recipe.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="field">
-    <%= f.label :Cooking %><br />
-    <%= f.text_area :formula, :value => 'Formula' %>
-  </div>
+      <%= f.label :Recipe %>
+      <br/>
+      <%= f.text_field :name, :value => 'Name' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Cooking %>
+      <br/>
+      <%= f.text_area :formula, :value => 'Formula' %>
+    </div>
 
 
-  <%= f.label :Ingredients %><br />
-      <% Ingredient.all.each do |ingredient| %>
-      <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
-      <%= label_tag ingredient.name %>
-      <% end %>
+    <%= f.label :Ingredients %><br />
+    <% Ingredient.all.each do |ingredient| %>
+        <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
+        <%= label_tag ingredient.name %>
+    <% end %>
 
-   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

@@ -1,41 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-  <h3>Dish:
- <%= @recipe.name %>
-      </h3>
+<h3>Dish:
+  <%= @recipe.name %>
+</h3>
 
 <br><br>
 
-  <h2>Recipe:</h2>
-  <%= @recipe.formula %>
+<h2>Recipe:</h2>
+<%= @recipe.formula %>
 
 <p>
-  <h2>Ingredients:</h2>
-  <% @recipe.ingredients.each do |this_ingredient| %>
+<h2>Ingredients:</h2>
+<% @recipe.ingredients.each do |this_ingredient| %>
     <%= this_ingredient.name %><br>
-  <% end %>
+<% end %>
 
 <h2>voting:</h2>
-  <%= @recipe.name %> scores ... out of 10 possible points. <%= link_to "vote here", '#' %>
- <% #TODO: get real scores, init vote button  %>
+<%= @recipe.name %> scores ... out of 10 possible points. <%= link_to "vote here", '#' %>
+<% #TODO: get real scores, init vote button    %>
 
 
-  <br>
+<br>
 <br>
 <br>
 
 <h2>Comments:</h2>
-  <% @recipe.comments.each do |c|%>
-      <h4>
-        <% #TODO: test %>
+<% @recipe.comments.each do |c| %>
+    <h4>
       <%= c.name %>
-      </h4>
-      <%= c.text %>
-      <hr />
-  <% end %>
+    </h4>
+    <h6>
+      <%= c.created_at %>
+    </h6>
+       <%= c.text %>
+    <hr/>
+<% end %>
 
-<br><br><hr />
+<br><br>
+<hr/>
 
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+<%= link_to 'Comment', new_comment_path %>

@@ -1,56 +1,65 @@
 <% if params[:search_in].blank? %>
-      <% @title = "Ingredients" %>
-      <% rec = false %>
-    <% else %>
-      <% @title = "Recipes you can still cook with: #{params[:search_in].split(' ').join(", ")}:" %>
-      <% rec = true %>
+    <% @title = "Ingredients" %>
+    <% rec = false %>
+<% else %>
+    <% @title = "Recipes you can still cook with: #{params[:search_in].split(' ').join(", ")}:" %>
+    <% rec = true %>
 <% end %>
 
-<h2><%= @title  %></h2>
+<h2><%= @title %></h2>
 
 <% if @ingredients.count == 0 %>
-        no entries were found<br><br><br>
+    no entries were found<br><br><br>
     <%= link_to '--> maybe order a Pizza ', "http://pizza.de" %>
     <br>
 <% else %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
-           <tr>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% if rec %>
+          <tr>
+
+            <% @ingredients.each do |bucket| %>
+                <% bucket.each do |ingredient| %>
+
+                    <td><%= ingredient.name %></td>
+                    <td><%= link_to (t :show), ingredient %></td>
+                    <td><%= link_to (t :edit), edit_recipe_path(ingredient) %></td>
+                    </tr>
 
 
-    <% @ingredients.each do |bucket| %>
-        <% bucket.each do |ingredient| %>
-
-            <td><%= ingredient.name %></td>
-            <td><%= link_to (t :show), ingredient %></td>
-            <% if rec %>
-              <td><%= link_to (t :edit), edit_recipe_path(ingredient) %></td>
-
-            <% else %>
-              <td><%= link_to (t :edit), edit_ingredient_path(ingredient) %></td>
-            <td><%= link_to "#{t :destroy}", ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+                <tr>
+                  <td>__________</td>
+                </tr>
             <% end %>
-         </tr>
+      <% else %>
+          <tr>
+
+            <% @ingredients.each do |ingredient| %>
+
+                <td><%= ingredient.name %></td>
+                <td><%= link_to (t :show), ingredient %></td>
+                <td><%= link_to (t :edit), edit_ingredient_path(ingredient) %></td>
+                <td><%= link_to "#{t :destroy}", ingredient, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                </tr>
 
 
-          <% end %>
-    <tr>
-      <td>__________</td>
-    </tr>
+            <% end %>
+      <% end %>
 
-    <% end %>
-<% end  %>
+<% end %>
 
 
 </table>
 
-<br />
+<br/>
 <% unless rec %>
-<%= link_to 'New Ingredient', new_ingredient_path %>
+    <%= link_to 'New Ingredient', new_ingredient_path %>
 <% end %>
 
 <%= link_to (t :back_to_rec), recipes_path %>

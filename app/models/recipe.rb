@@ -5,7 +5,7 @@ class Recipe < ActiveRecord::Base
 
   def self.search(search)
     if search
-        all(:conditions => ['name LIKE ?', "%#{search}%"])
+      all(:conditions => ['name LIKE ?', "%#{search}%"])
     else
       all
     end
@@ -13,7 +13,7 @@ class Recipe < ActiveRecord::Base
   end
 
   attr_accessible :formula, :name
-  validates :formula, :name, presence:  true
-  accepts_nested_attributes_for   :ingredients,  :cook_items
+  validates :formula, :name, presence: true
+  accepts_nested_attributes_for :ingredients, :cook_items
 
 end

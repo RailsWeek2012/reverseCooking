@@ -1,4 +1,4 @@
-<h1><%=t :all_recipes %></h1>
+<h1><%= t :all_recipes %></h1>
 
 <%= form_tag recipes_path, :method => 'get' do %>
     <p>
@@ -10,7 +10,7 @@
 
 <%= form_tag ingredients_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search_in,  params[:search_in] %>
+      <%= text_field_tag :search_in, params[:search_in] %>
       <%= submit_tag t(:search_ingredient), :name => nil %>
     </p>
 <% end %>
@@ -24,24 +24,25 @@
     <th></th>
   </tr>
 
-<% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.name %></td>
-   <!-- <td><button class="btn-primary" onclick="location.href='<%= recipe %>'" ><%= link_to (t :show)%></button></td>
+  <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <!-- <td><button class="btn-primary" onclick="location.href='<%= recipe %>'" ><%= link_to (t :show) %></button></td>
     <td><button class="btn-info"><%= link_to (t :edit), edit_recipe_path(recipe) %></button></td>
-    <td><button class="btn-danger"><%= link_to (t :destroy), recipe, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+    <td><button class="btn-danger"><%= link_to (t :destroy), recipe, method: :delete, data: {confirm: 'Are you sure?'} %></button></td>
     !-->
 
-    <td><%= link_to (t :show), recipe%></td>
-    <td><%= link_to (t :edit), edit_recipe_path(recipe) %><td>
-    <td><%= link_to (t :destroy), recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (t :show), recipe %></td>
+        <td><%= link_to (t :edit), edit_recipe_path(recipe) %>
+        <td>
+        <td><%= link_to (t :destroy), recipe, method: :delete, data: {confirm: 'Are you sure?'} %></td>
 
 
-  </tr>
-<% end %>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New Recipe', new_recipe_path %>
 <%= link_to 'Ingredients', ingredients_path %>

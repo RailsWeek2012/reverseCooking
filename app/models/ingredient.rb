@@ -25,13 +25,12 @@ class Ingredient < ActiveRecord::Base
         @match = @recipes.select do |recipe|
           (recipe.ingredients - @search_values).empty?
         end
-        #TODO: Append recipes with one or two ingredients missing
 
         @match_less = @recipes.select do |rec|
-         (rec.ingredients - @search_values).length == 1
+          (rec.ingredients - @search_values).length == 1
         end
 
-        return [@match.uniq,@match_less.uniq]
+        return [@match.uniq, @match_less.uniq]
 
       end
     else
