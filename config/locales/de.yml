@@ -1,0 +1,11 @@
+de:
+
+  all_recipes: Alle Rezepte
+  search_ingredient: Suche nach Zutaten
+  search_recipe: Suche nach Rezept
+
+  show: zeigen
+  edit: editieren
+  destroy: loeschen
+
+  back_to_rec: zurück zu Rezepten

@@ -27,6 +27,14 @@
     <%= f.label :Ingredients %><br />
     <%# TODO: sort ingredients by type %>
 
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#">Home</a>
+      </li>
+      <li><a href="#">Second</a></li>
+      <li><a href="#">Third</a></li>
+    </ul>
+
 
     <% Ingredient.all.each do |ingredient| %>
         <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
