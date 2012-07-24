@@ -16,8 +16,18 @@
 <% end %>
 
 <h2>voting:</h2>
-<%= @recipe.name %> scores ... out of 10 possible points. <%= link_to "vote here", '#' %>
-<% #TODO: get real scores, init vote button    %>
+<p>
+
+  <%= @recipe.name %> scores ... out of 10 possible
+  points. <%= link_to "vote here", '#', :class => "btn-small btn-info" %>
+</p>
+
+<div class="progress progress-striped">
+  <div class="bar"
+       style="width: 20%;"></div>
+</div>
+
+<% #TODO: get real scores, init vote button     %>
 
 
 <br>
@@ -32,7 +42,7 @@
     <h6>
       <%= c.created_at %>
     </h6>
-       <%= c.text %>
+    <%= c.text %>
     <hr/>
 <% end %>
 
@@ -40,6 +50,6 @@
 <hr/>
 
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
-<%= link_to 'Comment', new_comment_path %>
+<%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn-small btn-warning" %>
+<%= link_to 'Back', recipes_path, :class => "btn-small btn-inverse" %>
+<%= link_to 'Comment', new_comment_path, :class => "btn-small btn-success" %>
