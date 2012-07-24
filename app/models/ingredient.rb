@@ -22,7 +22,7 @@ class Ingredient < ActiveRecord::Base
           end
         end
 
-        @match = @recipes.select do |recipe|
+        @match_all = @recipes.select do |recipe|
           (recipe.ingredients - @search_values).empty?
         end
 
@@ -30,11 +30,22 @@ class Ingredient < ActiveRecord::Base
           (rec.ingredients - @search_values).length == 1
         end
 
-        return [@match.uniq, @match_less.uniq]
+        @match_some = @recipes.select do |rec|
+          (rec.ingredients - @search_values).length == 2
+        end
+
+        return [@match_all.uniq, @match_less.uniq, @match_some.uniq]
 
       end
     else
       return all
+    end
+  end
+
+  def after_initialize
+    if new_record?
+      vote_count = 0
+      vote_sum = 0
     end
   end
 

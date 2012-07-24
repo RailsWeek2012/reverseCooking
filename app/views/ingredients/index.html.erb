@@ -27,8 +27,8 @@
                 <% bucket.each do |ingredient| %>
 
                     <td><%= ingredient.name %></td>
-                    <td><%= link_to (t :show), ingredient %></td>
-                    <td><%= link_to (t :edit), edit_recipe_path(ingredient) %></td>
+                    <td><%= link_to (t :show), ingredient, :class => "btn-small btn-primary" %></td>
+                    <td><%= link_to (t :edit), edit_recipe_path(ingredient),  :class => "btn-small btn-warning" %></td>
                     </tr>
 
 
