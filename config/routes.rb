@@ -1,12 +1,20 @@
 ReverseCooking::Application.routes.draw do
 
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
 
   scope "/:locale" do
     resources :cook_items
     resources :ingredients
     resources :recipes
     resources :comments
-
+    resources :users, only: [:new, :create]
+    get "login" => "sessions#new", as: "login"
+    post "sessions" => "sessions#create", as: "sessions"
+    delete "logout" => "sessions#destroy", as: "logout"
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
