@@ -14,6 +14,10 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+    @comment = Comment.new
+    @comment.recipe = @recipe
+
+    session[:return_to] = request.env["REQUEST_URI"]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -48,6 +52,8 @@ class RecipesController < ApplicationController
     else
       @recipe.ingredient_ids = ingredients.collect {|key, value| key}
     end
+
+    @recipe.vote_count= 0
 
     respond_to do |format|
       if @recipe.save
