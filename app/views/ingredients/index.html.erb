@@ -13,6 +13,8 @@
     <%= link_to '--> maybe order a Pizza ', "http://pizza.de", :class => "btn btn-danger" %>
     <br>
 <% else %>
+
+    <% i = 0 %>
     <table>
       <tr>
         <th>Name</th>
@@ -34,8 +36,27 @@
 
                 <% end %>
                 <tr>
-                  <td>__________</td>
+                  <td>
+
+                    <% case i %>
+                    <% when 0 %>
+                    <% when 1 then  %>
+                        <br><br>
+                        <h6>
+                          <%= "One ingredient is missing to cook:" %>
+                        </h6>
+                    <% when 2 then puts "Two ingredients are missing to cook:" %>
+                        <br><br>
+                        <h6>
+                          <%= "Two ingredients are missing to cook:" %>
+                        </h6>
+                  <% else puts "..." %>
+                    <% end %>
+                  </td>
                 </tr>
+
+                <% i+=1 %>
+
             <% end %>
       <% else %>
           <tr>
