@@ -12,6 +12,7 @@ ReverseCooking::Application.routes.draw do
     resources :recipes
     resources :comments
     resources :users, only: [:new, :create]
+    get "vote/:recipe_id/:voting" => "recipes#vote", as: "voting"
     get "login" => "sessions#new", as: "login"
     post "sessions" => "sessions#create", as: "sessions"
     delete "logout" => "sessions#destroy", as: "logout"

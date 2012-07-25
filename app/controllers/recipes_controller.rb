@@ -92,6 +92,29 @@ class RecipesController < ApplicationController
     end
   end
 
+  def vote
+    @recipe = Recipe.find(params[:recipe_id])
+
+    if @recipe.vote_count == nil
+      @recipe.vote_count = 1
+      @recipe.vote_sum = params[:voting].to_i
+    else
+      @recipe.vote_count += 1
+      @recipe.vote_sum += params[:voting].to_i
+    end
+
+
+    respond_to do |format|
+      if @recipe.update_attributes(params[:recipe])
+        format.html { redirect_to @recipe, notice: 'Thanks for voting' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
   def require_login!
     unless user_signed_in?
@@ -99,6 +122,5 @@ class RecipesController < ApplicationController
                   alert: "Bitte melden Sie sich zuerst an."
     end
   end
-
 
 end
