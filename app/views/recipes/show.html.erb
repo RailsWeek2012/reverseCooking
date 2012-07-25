@@ -7,7 +7,8 @@ Dish:
 <br><br>
 
 <h2>Recipe:</h2>
-<%= @recipe.formula %>
+<%= line_break(@recipe.formula)  %>
+
 
 <p>
 <h2>Ingredients:</h2>
@@ -30,27 +31,34 @@ Dish:
   <br>
 </p>
 
-<div class="progress progress-striped">
+<div class="progress progress-danger progress-striped">
   <div class="bar"
-       style="<%= score %>"></div>
+       style="width: <%= score*10 %>%"></div>
 </div>
 
 
-<div class="btn-group dropup">
+<div class="btn-group">
   <button class="btn">Vote</button>
   <button class="btn dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu">
-    <p>1: bad</p>
 
-    <p>5</p>
 
-    <p>10: great</p>
+  <ul class="dropdown-menu" id="dropdown_links">
+    <%= link_to "1 poor", voting_path(@recipe.id, 1) %>
+    <%= link_to "2 ", voting_path(@recipe.id, 2) %>
+    <%= link_to "3", voting_path(@recipe.id, 3) %>
+    <%= link_to "4", voting_path(@recipe.id, 4) %>
+    <%= link_to "5 average", voting_path(@recipe.id, 5) %>
+    <%= link_to "6", voting_path(@recipe.id, 6) %>
+    <%= link_to "7", voting_path(@recipe.id, 7) %>
+    <%= link_to "8", voting_path(@recipe.id, 8) %>
+    <%= link_to "9", voting_path(@recipe.id, 9) %>
+    <%= link_to "10 great", voting_path(@recipe.id, 10) %>
+
+
   </ul>
 </div>
-<%# TODO: voting system %>
-
 <br>
 <br>
 <br>
