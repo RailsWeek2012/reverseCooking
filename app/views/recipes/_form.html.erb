@@ -27,21 +27,41 @@
     <%= f.label :Ingredients %><br />
     <%# TODO: sort ingredients by type %>
 
-    <ul class="nav nav-tabs">
+
+
+    <ul class="nav nav-tabs" id="tablinks">
       <li class="active">
-        <a href="#">Meat</a>
+        <a href="#Default">Default</a>
       </li>
-      <li><a href="#">Vegetable</a></li>
-      <li><a href="#">Fruit</a></li>
+
+      <% @ingredient_categories = [] %>
+
+      <% Ingredient.all.each do |ingredient| %>
+          <% @ingredient_categories.append ingredient.category %>
+
+
+      <% end %>
+
+      <% @ingredient_categories.uniq.each do |category| %>
+
+          <li><a href="#<%= category %>"><%= category %></a></li>
+
+      <% end %>
+
     </ul>
 
 
+
     <% Ingredient.all.each do |ingredient| %>
+
         <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
         <%= label_tag ingredient.name %>
     <% end %>
+
 
     <div class="actions">
       <%= f.submit %>
     </div>
 <% end %>
+
+
