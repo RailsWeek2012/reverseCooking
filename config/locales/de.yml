@@ -1,11 +1,20 @@
 de:
 
+  browse_recipes: Finde Rezepte
+  ingredients_list: Zutaten hinzufuegen
+  create_recipe: Neues Rezept
+  change_language: Change Language
+
   all_recipes: Alle Rezepte
-  search_ingredient: Suche nach Zutaten
+  search_ingredient: Was kann ich kochen?
   search_recipe: Suche nach Rezept
+  random_recipes: Rezepte
+
+  new_recipe: Neues Rezept
+  ingredients: Zutaten
 
   show: zeigen
-  edit: editieren
-  destroy: loeschen
+  edit: bearbeiten
+  destroy: löschen
 
   back_to_rec: zurück zu Rezepten

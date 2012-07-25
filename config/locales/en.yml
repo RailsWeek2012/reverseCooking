@@ -1,11 +1,22 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2locale for starting points.
-
 en:
 
+  browse_recipes: Browse Recipes
+  ingredients_list: Ingredients list
+  create_recipe: Create Recipe
+  change_language: Change Language
+
+  all_recipes: Recipes
   search_ingredient: search by ingredient
   search_recipe: search by recipe
+  random_recipes: Random Recipes
+
+  new_recipe: New Recipe
+  ingredients: Ingredients
 
   show: show
   edit: edit
-  destroy: delelte
+  destroy: delete
+
+  back_to_rec: back to recipes
+
+

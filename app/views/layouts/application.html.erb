@@ -22,13 +22,10 @@
 
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Browse Recipes", recipes_path %></li>
-          <li><%= link_to "Search", recipes_path %></li>
-          <li><%= link_to "Ingredients list", ingredients_path %></li>
-          <li><%= link_to "Create Recipe", new_recipe_path %></li>
-          <li><%= link_to "About us" %></li>
-          <li><%= link_to "Contact" %></li>
-          <li><%= link_to "Change Language", recipes_path %></li>
+          <li><%= link_to (t :browse_recipes),   recipes_path         %></li>
+          <li><%= link_to (t :ingredients_list), new_ingredient_path %></li>
+          <li><%= link_to (t :create_recipe),    new_recipe_path      %></li>
+          <li><%= link_to (t :change_language),  recipes_path         %></li>
         </ul>
         <ul class="nav pull-right">
           <li class="dropdown">
@@ -60,7 +57,7 @@
 <div class="container">
   <div class="row">
     <div class="span2">
-      <div id="randoms"><h3>Random recipes</h3></div>
+      <div id="randoms"><h3>t :random_recipes</h3></div>
     </div>
     <div class="span5" id="content"><%= yield %></div>
     <div class="span2">&nbsp;</div>

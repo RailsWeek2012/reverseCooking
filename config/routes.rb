@@ -6,7 +6,7 @@ ReverseCooking::Application.routes.draw do
 
   get "sessions/destroy"
 
-  scope "/:locale" do
+  scope "(:locale)", :locale => /en|de/ do
     resources :cook_items
     resources :ingredients
     resources :recipes

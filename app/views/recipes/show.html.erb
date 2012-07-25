@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Dish:
-  <%= @recipe.name %>
-</h3>
+Dish:
+<h1>  <%= @recipe.name %>
+</h1>
 
 <br><br>
 
@@ -30,23 +30,26 @@
   <br>
 </p>
 
-<%# TODO: implement voting window %>
-
-<% unless @message_rendered %>
-    <% if flash[:vote] %>
-        <p class='notice'> <%= h flash[:notice] %></p>
-
-    <% end %>
-    <% @message_rendered = true %>
-<% end %>
-
 <div class="progress progress-striped">
   <div class="bar"
        style="<%= score %>"></div>
 </div>
-<%= link_to "vote here", (h flash[:vote]), :class => "btn-small btn-info" %>
 
 
+<div class="btn-group dropup">
+  <button class="btn">Vote</button>
+  <button class="btn dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" >
+    <p>1: bad</p>
+    <p>5</p>
+    <p>10: great</p>
+  </ul>
+</div>
+<%# TODO: votin system %>
+
+<% if @vote_given %>
 
 <br>
 <br>
@@ -66,9 +69,11 @@
 
 <br><br>
 <hr/>
+<h2>create Comment:</h2>
+
+<%= render "comments/form" %>
 
 <div id="footer_buttons">
   <%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn-small btn-warning" %>
   <%= link_to 'Back', recipes_path, :class => "btn-small btn-inverse" %>
-  <%= link_to 'Comment', new_comment_path, :class => "btn-small btn-success" %>
 </div>

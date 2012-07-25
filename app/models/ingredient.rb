@@ -49,7 +49,7 @@ class Ingredient < ActiveRecord::Base
     end
   end
 
-  attr_accessible :name, :type
+  attr_accessible :name, :category
   validates :name, presence: true
 
 end
