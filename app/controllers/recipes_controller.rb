@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_filter :require_login! , except: [:index, :show]
+
   # GET /recipes
   # GET /recipes.json
   def index
@@ -93,6 +95,14 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to recipes_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+  def require_login!
+    unless user_signed_in?
+      redirect_to login_path,
+                  alert: "Bitte melden Sie sich zuerst an."
     end
   end
 

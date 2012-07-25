@@ -59,7 +59,23 @@
     <div class="span2">
       <div id="randoms"><h3>Random Recipes</h3></div>
     </div>
-    <div class="span5" id="content"><%= yield %></div>
+    <div class="span5" id="content">
+
+      <% if flash[:alert] %>
+          <p id="alert">
+            <%= flash[:alert] %>
+          </p>
+      <% end %>
+
+      <div id="msg">
+        <% if flash[:notice] %>
+            <p id="notice">
+              <%= flash[:notice] %>
+            </p>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
     <div class="span2">&nbsp;</div>
     <div class="span3">
       <h2>About Us</h2>
