@@ -1,13 +1,7 @@
 <%= form_for(@recipe) do |f| %>
     <% if @recipe.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
-          <ul>
-            <% @recipe.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+          <h2><%= (t :blank_field) %></h2>
         </div>
     <% end %>
 
@@ -50,13 +44,23 @@
 
     </ul>
 
-
-
-    <% Ingredient.all.each do |ingredient| %>
-
-        <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
-        <%= label_tag ingredient.name %>
+    <% if @recipe.name == nil %>
+        <% Ingredient.all.each do |ingredient| %>
+            <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
+            <%= label_tag ingredient.name %>
+        <% end %>
+    <% else %>
+        <% @recipe.ingredients.each do |ingredient| %>
+            <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" , true%>
+            <%= label_tag ingredient.name %>
+        <% end %>
+        <% (Ingredient.all-@recipe.ingredients).each  do |ingredient| %>
+            <%= check_box_tag "ingredients[#{ingredient.id}]", "validated" %>
+            <%= label_tag ingredient.name %>
+        <% end %>
     <% end %>
+
+
 
 
     <div class="actions">

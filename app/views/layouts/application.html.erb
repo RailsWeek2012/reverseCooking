@@ -25,9 +25,15 @@
           <li><%= link_to (t :browse_recipes),   recipes_path         %></li>
           <li><%= link_to (t :ingredients_list), new_ingredient_path %></li>
           <li><%= link_to (t :create_recipe),    new_recipe_path      %></li>
-          <li><%= link_to (t :change_language),  recipes_path         %></li>
         </ul>
         <ul class="nav pull-right">
+          <li>
+            <% if I18n.locale == I18n.default_locale %>
+                <%= link_to image_tag("united_kingdom_flag_16.png"), :locale=>'en'     %>
+            <% else %>
+                <%= link_to image_tag("germany_flag_16.png"),        :locale=>'de'      %>
+            <% end %>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account
@@ -35,16 +41,20 @@
             </a>
             <ul class="dropdown-menu" id="dropdown_links">
               <li>
-                <%= link_to "New User",
-                             new_user_path %>
+                <%= link_to new_user_path  do%>
+                    <i class="icon-user"></i> New User
+                <% end %>
               </li>
               <li>
                 <% if user_signed_in? %>
-                    <%= link_to "Logout", logout_path, method: :delete %>
+                    <%= link_to logout_path, method: :delete do %>
+                        <i class="icon-off"></i> Logout
+                    <% end %>
                 <% else %>
-                    <%= link_to "Login", login_path %>
+                    <%= link_to login_path do %>
+                        <i class="icon-off"></i> Login
+                    <% end %>
                 <% end %>
-
               </li>
             </ul>
           </li>
@@ -57,7 +67,8 @@
 <div class="container">
   <div class="row">
     <div class="span2">
-      <div id="randoms"><h3>Random Recipes</h3></div>
+      <div id="randoms"><h3>Random Recipes</h3>
+      </div>
     </div>
     <div class="span5" id="content">
 

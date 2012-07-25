@@ -17,6 +17,8 @@ en:
   edit: edit
   destroy: delete
 
+  blank_field: Hups, there's something missing!
+
   back_to_rec: back to recipes
 
 

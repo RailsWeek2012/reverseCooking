@@ -49,12 +49,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
     ingredients = params[:ingredients]
 
-    if ingredients.blank?
-      #Todo: throw error: no ingredients are given
-    else
-      @recipe.ingredient_ids = ingredients.collect {|key, value| key}
-    end
-
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
