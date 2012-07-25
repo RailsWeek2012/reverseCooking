@@ -53,8 +53,6 @@ class RecipesController < ApplicationController
       @recipe.ingredient_ids = ingredients.collect {|key, value| key}
     end
 
-    @recipe.vote_count= 0
-
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }

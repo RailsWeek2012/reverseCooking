@@ -12,6 +12,14 @@ class Recipe < ActiveRecord::Base
 
   end
 
+
+  def after_initialize
+    if new_record?
+      vote_count = 0
+      vote_sum = 0
+    end
+  end
+
   attr_accessible :formula, :name
   validates :formula, :name, presence: true
   accepts_nested_attributes_for :ingredients, :cook_items
