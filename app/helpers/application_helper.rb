@@ -5,10 +5,12 @@ module ApplicationHelper
   end
 
   def random_recipes
-    if Recipe.all.count > 0
+    unless Recipe.all.count == 0
+
+      all_recipes = Recipe.all
+      tmp_recipe = all_recipes.sample(1).first
 
 
-      tmp_recipe = Recipe.first(:order => "RANDOM()")
       link_to(tmp_recipe.name,tmp_recipe)
 
     end
