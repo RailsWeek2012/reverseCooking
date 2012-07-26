@@ -12,16 +12,6 @@ class Recipe < ActiveRecord::Base
 
   end
 
-
-  #unused
-  def after_initialize
-    if new_record?
-      @vote_count = 0
-      @vote_sum = 0
-    end
-  end
-
-
   attr_accessible :formula, :name
   validates :formula, :name, :ingredients, presence: true
 

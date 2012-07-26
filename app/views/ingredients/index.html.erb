@@ -1,14 +1,14 @@
 <% if params[:search_in].blank? %>
-    <% @title = "Ingredients" %>
+    <% title = "Ingredients" %>
     <% rec = false %>
 <% else %>
-    <% @title = "Recipes you can still cook with: #{params[:search_in].split(' ').join(", ")}:" %>
+    <% title = "Recipes you can still cook with: #{params[:search_in].split(' ').join(", ")}:" %>
     <% rec = true %>
 <% end %>
 
-<h2><%= @title %></h2>
+<h2><%= title %></h2>
 
-<% if @ingredients.count == 0 %>
+<% if rec && @ingredients.first.count == 0 && @ingredients.second.count == 0 && @ingredients.third.count == 0 %>
     no entries were found<br><br><br>
     <%= link_to '--> maybe order a Pizza ', "http://pizza.de", :class => "btn btn-danger" %>
     <br>

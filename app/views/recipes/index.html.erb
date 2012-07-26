@@ -2,7 +2,7 @@
 
 <%= form_tag recipes_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search_re, params[:search_re] %>
+      <%= text_field_tag :search_re, params[:search_re], :value => "zb. Nudeln mit Tomatensoße" %>
       <%= submit_tag (t :search_recipe), :name => nil, :class => "btn-small btn-success" %>
     </p>
 <% end %>
@@ -10,13 +10,13 @@
 
 <%= form_tag ingredients_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search_in, params[:search_in] %>
+      <%= text_field_tag :search_in, params[:search_in], :value => "zb Tomaten Nudeln Milch Salami" %>
       <%= submit_tag t(:search_ingredient), :name => nil, :class => "btn-small btn-success" %>
     </p>
 <% end %>
-
 <table>
   <tr>
+
     <th>Recipes</th>
     <th></th>
     <th></th>
