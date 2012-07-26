@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Ingredient.create([{name: 'Tomaten'},{name: 'Mais'}, {name: 'Gurken'},{name: 'Mett'}])
+Ingredient.create([{name: 'Tomaten', category: 'Gemuese'},{name: 'Mais', category: 'Gemuese'}, {name: 'Gurken', category: 'Gemuese'},{name: 'Mett', category: 'Fleisch'},{name: 'Schinken', category: 'Fleisch'},{name: 'Salami', category: 'Fleisch'},{name: 'Nudeln', category: 'Nudeln'},{name: 'Naturreis', category: 'Reis'},{name: 'Steinpilze', category: 'Pilze'},{name: 'Bananen', category: 'Obst'}])
