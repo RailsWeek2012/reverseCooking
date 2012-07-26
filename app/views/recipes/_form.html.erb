@@ -1,4 +1,5 @@
 <%= form_for(@recipe) do |f| %>
+
     <% if @recipe.errors.any? %>
         <div id="error_explanation">
           <h2><%= (t :blank_field) %></h2>
