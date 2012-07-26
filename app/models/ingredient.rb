@@ -42,14 +42,8 @@ class Ingredient < ActiveRecord::Base
     end
   end
 
-  def after_initialize
-    if new_record?
-      vote_count = 0
-      vote_sum = 0
-    end
-  end
-
   attr_accessible :name, :category
   validates :name, presence: true
+  validates :category, presence: true
 
 end
