@@ -26,15 +26,22 @@ class Ingredient < ActiveRecord::Base
           (recipe.ingredients - @search_values).empty?
         end
 
-        @match_less = @recipes.select do |rec|
-          (rec.ingredients - @search_values).length == 1
+        @match_less = @recipes.select do |recipe|
+          (recipe.ingredients - @search_values).length == 1
         end
 
-        @match_some = @recipes.select do |rec|
-          (rec.ingredients - @search_values).length == 2
+        @match_some = @recipes.select do |recipe|
+          (recipe.ingredients - @search_values).length == 2
         end
 
-        return [@match_all.uniq, @match_less.uniq, @match_some.uniq]
+
+
+        if @match_all == nil && @match_less == nil && @match_some == nil
+          return nil
+        else
+          return [@match_all.uniq, @match_less.uniq, @match_some.uniq]
+
+        end
 
       end
     else
@@ -42,14 +49,7 @@ class Ingredient < ActiveRecord::Base
     end
   end
 
-  def after_initialize
-    if new_record?
-      vote_count = 0
-      vote_sum = 0
-    end
-  end
-
   attr_accessible :name, :category
-  validates :name, presence: true
+  validates :name, :category, presence: true
 
 end

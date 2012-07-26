@@ -1,4 +1,4 @@
-class AddTypeToIngredients < ActiveRecord::Migration
+class AddCategoryToIngredients < ActiveRecord::Migration
   def change
     add_column :ingredients, :category, :string
   end

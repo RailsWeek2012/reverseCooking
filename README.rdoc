@@ -1,5 +1,11 @@
 == reverseCooking
 
-  submit what you have left in your kitchen, get back all recipes which you can still cook with that
+Submit what you have left in your kitchen, get back all recipes which you can still cook with that.
 
+
+== Code Sources
+
+http://twitter.github.com/bootstrap/
+http://railscasts.com/
+http://loeffelkoenig.de/~fate/
 
