@@ -16,12 +16,12 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :value => current_user.name %>
   </div>
   <div class="field">
     <%= f.label :text %><br />
 
-    <%= f.text_field :text, :value => current_user.name %>
+    <%= f.text_field :text %>
   </div>
   <div class="actions">
     <%= f.submit %>
