@@ -13,6 +13,8 @@ Submit what you have left in your kitchen, get back all recipes which you can st
 
 ===http://loeffelkoenig.de/~fate/
 
+===http://stackoverflow.com/
+
 
 ===Ruby Guides
 ====http://guides.rubyonrails.org/i18n.html
