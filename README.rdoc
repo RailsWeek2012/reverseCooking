@@ -5,7 +5,15 @@ Submit what you have left in your kitchen, get back all recipes which you can st
 
 == Code Sources
 
-http://twitter.github.com/bootstrap/
-http://railscasts.com/
-http://loeffelkoenig.de/~fate/
+==Git Hub
+===http://twitter.github.com/bootstrap/
+
+===http://railscasts.com/
+====http://railscasts.com/episodes/328-twitter-bootstrap-basics
+
+==http://loeffelkoenig.de/~fate/
+
+
+===Ruby Guides
+====http://guides.rubyonrails.org/i18n.html
 
