@@ -88,7 +88,7 @@
 
     </div>
 
-    <div class="span5" id="content">
+    <div id="content">
 
       <% if flash[:alert] %>
           <p id="alert">
@@ -96,14 +96,15 @@
           </p>
       <% end %>
 
-      <div id="msg">
-        <% if flash[:notice] %>
-            <p id="notice">
-              <%= flash[:notice] %>
-            </p>
-        <% end %>
-        <%= yield %>
-      </div>
+
+      <% if flash[:notice] %>
+       <p id="notice">
+        <%= flash[:notice] %>
+        </p>
+      <% end %>
+
+      <%= yield %>
+
     </div>
 
   </div>
