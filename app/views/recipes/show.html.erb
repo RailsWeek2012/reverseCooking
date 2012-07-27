@@ -18,15 +18,7 @@ Dish:
 
 <h2>voting:</h2>
 <p>
-
-  <% if @recipe.vote_count == nil || @recipe.vote_count == 0; %>
-      <% score = 0 %>
-  <% else %>
-      <% score = @recipe.vote_sum / @recipe.vote_count %>
-  <% end %>
-
-  <%= @recipe.name %> scored <%= score %> out of 10 possible points in <%= @recipe.vote_count %> votings
-
+  <%= @recipe.name %> scored <%= score = get_voting @recipe %> out of 10 possible points in <%= @recipe.vote_count %> votings
 
   <br>
 </p>
